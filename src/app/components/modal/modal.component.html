@@ -1,0 +1,13 @@
+<div class="modal" *ngIf="isActiveModal"
+     #containerModal
+     [ngClass]="{
+     'visible':visible,
+     'up': modalOrientation,
+     'transparent':!visible,
+     'up-create':classState === 'create',
+     'up-change':classState === 'change'}">
+  <a class="close" (click)="close($event)">
+    <svg-icon src="assets/close.svg"></svg-icon>
+  </a>
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,43 @@
+@import '../../../../assets/colors.scss';
+
+::ng-deep.modal {
+  &.up-change {
+    top: -240px;
+    &:after {
+      transform: rotate(675deg);
+      top: 190px;
+    }
+  }
+}
+.complete {
+  width: 10px;
+}
+.remove-container{
+  width: 20px;
+  display: inline-block;
+}
+.remove {
+  width: 10px;
+  height: 10px;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.remove::before,
+.remove::after {
+  position: absolute;
+  content: '';
+  width: 90%;
+  height: 1px;
+  background-color: $task-bg;
+}
+
+.remove::before {
+  transform: rotate(45deg);
+}
+
+.remove::after {
+  transform: rotate(-45deg);
+}

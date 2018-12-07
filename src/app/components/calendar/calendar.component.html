@@ -1,0 +1,55 @@
+<div class="calendar">
+  <div class="month-grid">
+    <div class="day-names">
+      <div *ngFor="let name of dayNames" class="day-name p9">
+        {{ name }}
+      </div>
+    </div>
+    <div class="weeks">
+      <div *ngFor="let week of weeks" class="week">
+        <ng-container *ngFor="let day of week">
+          <div class="week-date disabled" *ngIf="!isSelectedMonth(day.mDate)">
+            <span class="date-text">{{ day.mDate.date() }}</span>
+          </div>
+          <div #container
+               class="week-date enabled"
+               *ngIf="isSelectedMonth(day.mDate)"
+               (click)="selectDate(day, day.task)"
+               [ngClass]="{
+                today: day.today,
+                active: day.selected && modalStateCreate,
+                'task-exist': day.task?.title && day.today
+                  }">
+            <app-modal
+              (create)="updateDay($event)"
+              [containerElement]="container"
+              (closeModal)="closeModal($event)"
+              [modalOrientation]="modalStateCreate"
+              [closeFromChange]="closeFromChange">
+              <app-create
+                *ngIf="modalStateCreate"
+                [day]="day.mDate.format('D')"
+                (submit)="generateCalendar()"
+                [date]="day.mDate.format('dddd, MMMM YY')">
+              </app-create>
+              <app-change
+                *ngIf="modalStateChange"
+                [day]="day.mDate.format('D')"
+                (change)="generateCalendar()"
+                [dataTask]="getCurrentTask(day)"
+                (removeState)="generateCalendar()"
+                [date]="day.mDate.format('YYYY/MM/DD')"
+                (closeState)="closeStateForChange()">
+              </app-change>
+            </app-modal>
+            <span class="date-text">{{ day.mDate.date() }}</span>
+            <div class="task" *ngIf="day.task?.title">
+              <input type="checkbox" [checked]="day.task?.complete"/>
+              {{day.task?.title}}
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

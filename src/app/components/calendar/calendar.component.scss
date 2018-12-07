@@ -1,0 +1,93 @@
+@import '../../../assets/colors.scss';
+
+.calendar {
+  margin: auto;
+  width: 80%;
+  * {
+    box-sizing: border-box;
+  }
+
+  .month-grid {
+    .day-names {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      background: $white;
+      border-bottom-right-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+    .weeks {
+      display: flex;
+      flex-direction: column;
+      border: solid 0.5px $border;
+    }
+    .week {
+      display: flex;
+      flex-direction: row;
+    }
+    .week-date,
+    .day-name {
+      padding: $base;
+      width: $dayBase;
+      display: flex;
+    }
+
+    .week-date {
+      height: 100px;
+      width: 100%;
+      position: relative;
+      border-bottom: solid 0.5px $border;
+      border-right: solid 0.5px $border;
+      &:last-child {
+        border-right: none;
+      }
+      .date-text {
+        z-index: 10;
+        font-size: 10px;
+        margin-left: 6px;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      &::after {
+        content: '';
+        height: $dayBase * 0.9;
+        width: $dayBase * 0.9;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        transition: background-color 150ms linear, color 150ms linear;
+        z-index: 1;
+      }
+
+      &.active {
+       background: $active;
+      }
+      &.task-exist {
+        background: #e1e1e1;
+      }
+
+      &.disabled {
+        color: $inactive-days;
+      }
+    }
+
+    .today {
+      font-weight: bold;
+    }
+  }
+}
+
+.task {
+  background: $task-bg;
+  border: 1px solid $task-border;
+  word-wrap: break-word;
+  margin-top: 20px;
+  width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  position: absolute;
+}

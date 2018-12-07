@@ -1,0 +1,14 @@
+<div class="container" #containerModal>
+      <span>
+        <input type="checkbox" class="complete" [checked]="complete" (change)="complete" (click)="onSelected()"/>
+        {{dataTask?.title}}
+      </span>
+  <input class="date-input" value="{{date}}">
+  <div class="remove-container">
+    <input type="checkbox" class="remove" [checked]="false" (click)="onRemove($event)"/>
+  </div>
+  <textarea class="note-area" name="note" required [ngModel]="dataTask?.note"></textarea>
+  <button (click)="close()" class="close-btn">Close</button>
+  <button (click)="onRemove($event)">Delete</button>
+  <div style="clear:both"></div>
+</div>

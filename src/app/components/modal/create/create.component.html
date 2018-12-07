@@ -1,0 +1,14 @@
+<div class="container" #containerModal>
+  <form #form="ngForm"
+        (ngSubmit)="onSubmit(form)">
+    <h1> Task </h1>
+    <input name="title" [ngModel]="title" required placeholder="Task title...">
+    <p> When</p>
+    <span>{{date}}</span>
+    <p> Note</p>
+    <textarea name="note" required [ngModel]="note"></textarea>
+    <button type="submit" class="create-btn">Create</button>
+    <div style="clear:both"></div>
+  </form>
+</div>
+

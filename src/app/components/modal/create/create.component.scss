@@ -1,0 +1,14 @@
+::ng-deep.modal {
+  &.up-create {
+    top: -240px;
+    &:after {
+      transform: rotate(675deg);
+      top: 260px;
+    }
+  }
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 21px;
+}

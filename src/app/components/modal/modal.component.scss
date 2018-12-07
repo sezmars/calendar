@@ -1,0 +1,107 @@
+@import '../../../assets/colors.scss';
+
+::content::ng-deep {
+  .container {
+    padding: 10px;
+    border: 0.5px solid $inactive-days;
+    background: $white;
+    span {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      resize: none;
+      box-sizing: border-box;
+      &.date-input {
+        width: 70px;
+        margin-bottom: 10px;
+      }
+      &.note-area {
+        height: 70px;
+      }
+    }
+    p {
+      font-weight: bold;
+      font-size: 14px;
+      color: $dark-gey;
+      margin: 10px 0 10px 0;
+    }
+    button {
+      background: transparent;
+      outline: none;
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      justify-items: center;
+      padding: 5px 10px 5px 10px;
+      color: $blue;
+      border-radius: 5px;
+      cursor: pointer;
+      float: left;
+      border: none;
+      margin: 10px 10px 10px 0;
+      &.close-btn {
+         background: $close;
+         color: $black;
+       }
+      &.create-btn {
+        background: $blue;
+        color: $white;
+        float: right;
+        margin: 10px 0 10px 0;
+      }
+    }
+  }
+}
+
+.modal {
+  z-index: 99;
+  width: 350px;
+  display: block;
+  left: -90px;
+  top: 60px;
+  position: absolute;
+  box-sizing: border-box;
+  box-shadow: -3px 3px 10px 0 rgba(0, 0, 0, 0.1);
+  &:after {
+    content: '';
+    position: absolute;
+    -webkit-transform: rotate(495deg);
+    transform: rotate(495deg);
+    top: -9px;
+    left: 160px;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    border: 10px solid $white;
+    border-color: transparent transparent $white $white;
+    box-shadow: -1px 1px 0.5px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.transparent {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.close {
+  width: 14px;
+  height: 14px;
+  color: $black;
+  background: transparent;
+  border: none;
+  display: block;
+  float: right;
+  cursor: pointer;
+  margin-top: 10px;
+  position: absolute;
+  right: 10px;
+}
