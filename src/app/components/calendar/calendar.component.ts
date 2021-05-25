@@ -41,7 +41,7 @@ export class CalendarComponent implements OnInit {
     return moment(date).isSame(this.currentDate, 'month');
   }
 
-  public selectDate(day: CalendarDate, state: string): void {
+  public selectDate(day: CalendarDate, state: ITask): void {
     if (Boolean(state)) {
       this.modalStateChange = true;
       this.modalStateCreate = false;

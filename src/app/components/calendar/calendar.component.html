@@ -30,7 +30,7 @@
                 *ngIf="modalStateCreate"
                 [day]="day.mDate.format('D')"
                 (submit)="generateCalendar()"
-                [date]="day.mDate.format('dddd, MMMM YY')">
+                [date]="day.mDate.format('MMMM Do YYYY')">
               </app-create>
               <app-change
                 *ngIf="modalStateChange"
